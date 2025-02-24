@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #game-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Guess the Number</h1>
+        <p>Guess a number between 1 and 5:</p>
+        <input type="number" id="userGuess" min="1" max="5">
+        <button onclick="checkGuess()">Submit Guess</button>
+        <p id="feedback"></p>
+        <button onclick="resetGame()">Restart Game</button>
+    </div>
+    
+    <script>
+        let randomNumber = Math.floor(Math.random() * 5) + 1;
+
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById('userGuess').value);
+            let feedback = document.getElementById('feedback');
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess >6) {
+                feedback.textContent = 'Please enter a valid number between 1 and 100.';
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                feedback.textContent = 'Congratulations! You guessed the correct number!';
+                feedback.style.color = 'green';
+            } else if (userGuess > randomNumber) {
+                feedback.textContent = 'Too high! Try again.';
+                feedback.style.color = 'red';
+            } else {
+                feedback.textContent = 'Too low! Try again.';
+                feedback.style.color = 'red';
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 5) + 1;
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('userGuess').value = '';
+        }
+    </script>
+</body>
+</html>

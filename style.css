@@ -1,0 +1,220 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Hero Section (Home Page) */
+.hero {
+  background: url('Home page.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.hero .btn {
+  background-color: #f5c518;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: black;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 1.5s;
+  cursor: pointer;
+}
+
+.hero .btn:hover {
+  background-color: #f5a600;
+  transform: scale(1.05);
+}
+
+/* Keyframes */
+@keyframes fadeInText {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Categories Page */
+.categories {
+  padding: 50px 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #333;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+.category-item {
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  cursor: pointer;
+  width: calc(25% - 40px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 10px;
+}
+
+.category-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.category-item:hover img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+.category-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.category-item p {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+/* Movie Details Page */
+.movie-details {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.movie-details h2 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.movie-details img {
+  width: 350px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.movie-details p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #555;
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+
+.movie-details p strong {
+  font-weight: bold;
+}
+
+/* Add subtle hover effect for all buttons */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .hero h1 {
+      font-size: 3rem;
+  }
+  
+  .hero p {
+      font-size: 1.2rem;
+  }
+
+  .category-item {
+      width: calc(50% - 40px);
+  }
+
+  .movie-details img {
+      width: 80%;
+      height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+
+  .hero p {
+      font-size: 1rem;
+  }
+
+  .category-item {
+      width: 100%;
+  }
+
+  .movie-details img {
+      width: 90%;
+      height: auto;
+  }
+}
